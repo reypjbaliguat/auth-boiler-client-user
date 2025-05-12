@@ -71,7 +71,7 @@ function LoginForm() {
               />
             </div>
           </div>
-          <Button fullWidth variant="contained">
+          <Button fullWidth variant="contained" type="submit">
             Login
           </Button>
         </Box>
