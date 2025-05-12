@@ -7,6 +7,7 @@ import type { SignInFormData } from "./schema";
 import schema from "./schema";
 
 function LoginForm() {
+  const env = import.meta.env;
   const {
     handleSubmit,
     control,
@@ -25,7 +26,7 @@ function LoginForm() {
     console.log("submit");
   };
   return (
-    <GoogleOAuthProvider clientId="test">
+    <GoogleOAuthProvider clientId={env.VITE_GOOGLE_CLIENT_ID}>
       <div className="w-[500px] h-[400px] flex justify-center flex-col">
         <img src={logo} width={50} height={50} className="mb-5" />
         <h6 className="text-3xl mb-5"> Login </h6>
