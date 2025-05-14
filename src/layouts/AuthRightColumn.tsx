@@ -1,6 +1,6 @@
 import bg from '@/assets/login-bg.jpg';
 
-function LoginRightColumn() {
+function AuthRightColumn() {
     return (
         <div className={`hidden sm:grid col-span-2 h-full`}>
             <div className="w-full relative">
@@ -14,4 +14,4 @@ function LoginRightColumn() {
     );
 }
 
-export default LoginRightColumn;
+export default AuthRightColumn;

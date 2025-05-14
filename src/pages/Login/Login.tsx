@@ -1,19 +1,7 @@
-import {
-    LoginCardContainer,
-    LoginLeftColumn,
-    LoginPageContainer,
-    LoginRightColumn,
-} from './components';
+import { LoginForm } from './components';
 
 const Login = () => {
-    return (
-        <LoginPageContainer>
-            <LoginCardContainer>
-                <LoginLeftColumn />
-                <LoginRightColumn />
-            </LoginCardContainer>
-        </LoginPageContainer>
-    );
+    return <LoginForm />;
 };
 
 export default Login;
