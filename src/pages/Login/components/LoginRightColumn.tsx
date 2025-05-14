@@ -2,7 +2,7 @@ import bg from '@/assets/login-bg.jpg';
 
 function LoginRightColumn() {
     return (
-        <div className={`grid col-span-2 h-full`}>
+        <div className={`hidden sm:grid col-span-2 h-full`}>
             <div className="w-full relative">
                 <img
                     src={bg}

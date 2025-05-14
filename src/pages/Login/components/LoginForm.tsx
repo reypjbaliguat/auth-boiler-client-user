@@ -14,8 +14,17 @@ function LoginForm() {
         formState: { errors, isSubmitting },
     } = useForm<SignInFormData>({ resolver: zodResolver(schema) });
 
-    const handleGoogleSuccess = () => {
+    const handleGoogleSuccess = async (credentialResponse: {
+        credential: string;
+    }) => {
         console.log('success');
+        const res = await fetch('http://localhost:5000/api/auth/google', {
+            method: 'POST',
+            body: JSON.stringify({
+                credential: credentialResponse.credential,
+            }),
+        });
+        console.log(res.data); // contains JWT and user info
     };
 
     const handleGoogleFailure = () => {
@@ -27,7 +36,7 @@ function LoginForm() {
     };
     return (
         <GoogleOAuthProvider clientId={env.VITE_GOOGLE_CLIENT_ID}>
-            <div className="w-[500px] h-[400px] flex justify-center flex-col">
+            <div className="xl:p-0 md:p-10 p-5 flex justify-center flex-col">
                 <img src={logo} width={50} height={50} className="mb-5" />
                 <h6 className="text-3xl mb-5"> Login </h6>
                 <span className="text-lg"> Please enter your login info</span>
