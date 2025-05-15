@@ -36,48 +36,61 @@ function LoginForm() {
     return (
         <AuthFormContainer label="Register">
             <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-                <div className="flex gap-x-2 my-4">
-                    <div className="basis-1/2 flex">
-                        <Controller
-                            name="email"
-                            control={control}
-                            rules={{ required: 'Email is required' }}
-                            render={({ field, fieldState: { error } }) => (
-                                <TextField
-                                    {...field}
-                                    label="Email"
-                                    type="email"
-                                    variant="outlined"
-                                    size="small"
-                                    error={!!error}
-                                    helperText={error?.message}
-                                    fullWidth
-                                />
-                            )}
-                        />
-                    </div>
-                    <div className="basis-1/2 flex">
-                        <Controller
-                            name="password"
-                            control={control}
-                            rules={{ required: 'Password is required' }}
-                            render={({ field, fieldState: { error } }) => (
-                                <TextField
-                                    {...field}
-                                    label="Password"
-                                    type="password"
-                                    variant="outlined"
-                                    size="small"
-                                    error={!!error}
-                                    helperText={error?.message}
-                                    fullWidth
-                                />
-                            )}
-                        />
-                    </div>
+                <div className="flex flex-col gap-y-2 my-4 basis-full w-[360px]">
+                    <Controller
+                        name="email"
+                        control={control}
+                        rules={{ required: 'Email is required' }}
+                        render={({ field, fieldState: { error } }) => (
+                            <TextField
+                                {...field}
+                                label="Email"
+                                type="email"
+                                variant="outlined"
+                                size="small"
+                                error={!!error}
+                                helperText={error?.message}
+                                fullWidth
+                            />
+                        )}
+                    />
+                    <Controller
+                        name="password"
+                        control={control}
+                        rules={{ required: 'Password is required' }}
+                        render={({ field, fieldState: { error } }) => (
+                            <TextField
+                                {...field}
+                                label="Password"
+                                type="password"
+                                variant="outlined"
+                                size="small"
+                                error={!!error}
+                                helperText={error?.message}
+                                fullWidth
+                            />
+                        )}
+                    />
+                    <Controller
+                        name="confirmPassword"
+                        control={control}
+                        rules={{ required: 'Confirm Password is required' }}
+                        render={({ field, fieldState: { error } }) => (
+                            <TextField
+                                {...field}
+                                label="Confirm Password"
+                                type="password"
+                                variant="outlined"
+                                size="small"
+                                error={!!error}
+                                helperText={error?.message}
+                                fullWidth
+                            />
+                        )}
+                    />
                 </div>
                 <Button fullWidth variant="contained" type="submit">
-                    Login
+                    Register
                 </Button>
             </Box>
 
