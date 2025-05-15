@@ -36,7 +36,7 @@ function LoginForm() {
     return (
         <AuthFormContainer label="Register">
             <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-                <div className="flex flex-col gap-y-2 my-4 basis-full w-[360px]">
+                <div className="flex flex-col gap-y-2 my-4 basis-full w-full">
                     <Controller
                         name="email"
                         control={control}

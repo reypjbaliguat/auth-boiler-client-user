@@ -12,7 +12,7 @@ function AuthFormContainer({ label, children }: Props) {
 
     return (
         <GoogleOAuthProvider clientId={env.VITE_GOOGLE_CLIENT_ID}>
-            <div className="xl:p-0 md:p-10 p-5 flex justify-center flex-col">
+            <div className="xl:p-0 md:p-10 px-5 py-7 flex justify-center flex-col w-[300px] md:w-[400px]">
                 <img src={logo} width={50} height={50} className="mb-5" />
                 <h6 className="text-3xl mb-5"> {label} </h6>
                 {isLogin && (
