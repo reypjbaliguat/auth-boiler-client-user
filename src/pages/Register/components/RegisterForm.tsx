@@ -3,11 +3,14 @@ import { Box, Button, Divider, TextField } from '@mui/material';
 import { GoogleLogin, type CredentialResponse } from '@react-oauth/google';
 import { Controller, useForm } from 'react-hook-form';
 import { AuthFormContainer } from '../../../layouts';
-import { handleOnSignInFormSubmit } from './register';
 import type { SignUpFormData } from './schema';
 import schema from './schema';
 
-function LoginForm() {
+interface Props {
+    handleSubmitForm: (data: SignUpFormData) => void;
+}
+
+function RegisterForm({ handleSubmitForm }: Props) {
     const {
         handleSubmit,
         control,
@@ -32,10 +35,7 @@ function LoginForm() {
 
     return (
         <AuthFormContainer label="Register">
-            <Box
-                component="form"
-                onSubmit={handleSubmit(handleOnSignInFormSubmit)}
-            >
+            <Box component="form" onSubmit={handleSubmit(handleSubmitForm)}>
                 <div className="flex flex-col gap-y-2 my-4 basis-full w-full">
                     <Controller
                         name="email"
@@ -112,4 +112,4 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
+export default RegisterForm;
