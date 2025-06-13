@@ -1,5 +1,6 @@
 import { enqueueSnackbar } from 'notistack';
 import { useState } from 'react';
+import OTPForm from '../../layouts/OTPForm';
 import { RegisterForm, handleOnSignInFormSubmit } from './components';
 import type { SignUpFormData } from './components/schema';
 
@@ -23,7 +24,7 @@ function Register() {
         case 'register':
             return <RegisterForm handleSubmitForm={handleSubmitForm} />;
         case 'otp':
-            return '<OTPForm otpEmail={otpEmail} onResend={handleResend} />';
+            return <OTPForm />;
         default:
             return <></>;
     }

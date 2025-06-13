@@ -1,5 +1,6 @@
 import logo from '@/assets/logo.png';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { Link } from 'react-router-dom';
 
 interface Props {
     label: 'Login' | 'Register';
@@ -21,6 +22,18 @@ function AuthFormContainer({ label, children }: Props) {
                     </span>
                 )}
                 {children}
+                {isLogin ? (
+                    <Link
+                        to={`/register`}
+                        className="mx-auto mt-5 text-blue-500"
+                    >
+                        Do you need an account?
+                    </Link>
+                ) : (
+                    <Link to={`/login`} className="mx-auto mt-5 text-blue-500">
+                        Already have an account?
+                    </Link>
+                )}
             </div>
         </GoogleOAuthProvider>
     );
