@@ -8,7 +8,11 @@ const handleOnSignInFormSubmit = async (payload: SignInFormData) => {
         const result = await res.data;
         return result;
     } catch (error) {
-        throw new Error(error as string);
+        if (axios.isAxiosError(error)) {
+            throw new Error(error.response?.data.message as string);
+        } else {
+            throw new Error('Something went wrong!');
+        }
     }
 };
 
