@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Box, Button, Divider, TextField } from '@mui/material';
+import { Alert, Box, Button, Divider, TextField } from '@mui/material';
 import { GoogleLogin, type CredentialResponse } from '@react-oauth/google';
 import { Controller, useForm } from 'react-hook-form';
 import { AuthFormContainer } from '../../../layouts';
@@ -8,15 +8,15 @@ import schema from './schema';
 
 interface Props {
     handleSubmitForm: (data: SignUpFormData) => void;
+    error?: string;
 }
 
-function RegisterForm({ handleSubmitForm }: Props) {
+function RegisterForm({ handleSubmitForm, error }: Props) {
     const {
         handleSubmit,
         control,
         formState: { isSubmitting },
     } = useForm<SignUpFormData>({ resolver: zodResolver(schema) });
-
     const handleGoogleSuccess = async (
         credentialResponse: CredentialResponse,
     ) => {
@@ -36,6 +36,7 @@ function RegisterForm({ handleSubmitForm }: Props) {
     return (
         <AuthFormContainer label="Register">
             <Box component="form" onSubmit={handleSubmit(handleSubmitForm)}>
+                {error && <Alert severity="error">{error}</Alert>}
                 <div className="flex flex-col gap-y-2 my-4 basis-full w-full">
                     <Controller
                         name="email"

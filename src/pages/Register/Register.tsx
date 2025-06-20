@@ -1,22 +1,30 @@
 import { useState } from 'react';
 import OTPForm from '../../layouts/OTPForm';
+import { extractAxiosErrorMessage } from '../../util/axiosError';
 import { RegisterForm, handleOnSignInFormSubmit } from './components';
 import type { SignUpFormData } from './components/schema';
 
 function Register() {
     const [page, setPage] = useState('register');
+    const [error, setError] = useState<string>('');
     const handleSubmitForm = async (payload: SignUpFormData) => {
         try {
             const res = await handleOnSignInFormSubmit(payload);
-
+            console.log(res);
             setPage('otp');
         } catch (error) {
             console.log(error);
+            setError(extractAxiosErrorMessage(error));
         }
     };
     switch (page) {
         case 'register':
-            return <RegisterForm handleSubmitForm={handleSubmitForm} />;
+            return (
+                <RegisterForm
+                    error={error}
+                    handleSubmitForm={handleSubmitForm}
+                />
+            );
         case 'otp':
             return <OTPForm />;
         default:

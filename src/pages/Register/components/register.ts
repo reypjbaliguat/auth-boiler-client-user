@@ -5,15 +5,17 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const handleOnSignInFormSubmit = async (payload: SignInFormData) => {
     try {
         const res = await axios.post(`${apiUrl}/auth/register`, payload);
-        const result = await res.data;
-        return result;
+        return res.data; // ✅ don't call res.data()
     } catch (error) {
+        let message = 'An unexpected error occurred';
+
         if (axios.isAxiosError(error)) {
-            throw new Error(error.response?.data.message as string);
-        } else {
-            throw new Error('Something went wrong!');
+            // AxiosError is properly typed
+            message = error.response?.data?.message ?? error.message;
+        } else if (error instanceof Error) {
+            message = error.message;
         }
+        throw new Error(message);
     }
 };
-
 export default handleOnSignInFormSubmit;
