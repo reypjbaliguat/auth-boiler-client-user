@@ -1,4 +1,3 @@
-import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
 import {
     Navigate,
@@ -17,49 +16,40 @@ import { store } from './store/store';
 const App = () => {
     return (
         <Provider store={store}>
-            <SnackbarProvider
-                maxSnack={3}
-                autoHideDuration={3000}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-            >
-                <AuthProvider>
-                    <Router>
-                        <Routes>
-                            <Route
-                                path="/login"
-                                element={
-                                    <AuthRoute>
-                                        <Login />
-                                    </AuthRoute>
-                                }
-                            />
-                            <Route
-                                path="/register"
-                                element={
-                                    <AuthRoute>
-                                        <Register />
-                                    </AuthRoute>
-                                }
-                            />
-                            <Route
-                                path="/dashboard"
-                                element={
-                                    <ProtectedRoute>
-                                        <Dashboard />
-                                    </ProtectedRoute>
-                                }
-                            />
-                            <Route
-                                path="/"
-                                element={<Navigate to="/dashboard" />}
-                            />
-                        </Routes>
-                    </Router>
-                </AuthProvider>
-            </SnackbarProvider>
+            <AuthProvider>
+                <Router>
+                    <Routes>
+                        <Route
+                            path="/login"
+                            element={
+                                <AuthRoute>
+                                    <Login />
+                                </AuthRoute>
+                            }
+                        />
+                        <Route
+                            path="/register"
+                            element={
+                                <AuthRoute>
+                                    <Register />
+                                </AuthRoute>
+                            }
+                        />
+                        <Route
+                            path="/dashboard"
+                            element={
+                                <ProtectedRoute>
+                                    <Dashboard />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/"
+                            element={<Navigate to="/dashboard" />}
+                        />
+                    </Routes>
+                </Router>
+            </AuthProvider>
         </Provider>
     );
 };

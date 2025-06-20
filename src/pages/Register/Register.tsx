@@ -1,4 +1,3 @@
-import { enqueueSnackbar } from 'notistack';
 import { useState } from 'react';
 import OTPForm from '../../layouts/OTPForm';
 import { RegisterForm, handleOnSignInFormSubmit } from './components';
@@ -9,15 +8,10 @@ function Register() {
     const handleSubmitForm = async (payload: SignUpFormData) => {
         try {
             const res = await handleOnSignInFormSubmit(payload);
-            enqueueSnackbar(res.message, {
-                variant: 'success',
-            });
+
             setPage('otp');
-            console.log(res);
         } catch (error) {
-            enqueueSnackbar(error as string, {
-                variant: 'error',
-            });
+            console.log(error);
         }
     };
     switch (page) {
