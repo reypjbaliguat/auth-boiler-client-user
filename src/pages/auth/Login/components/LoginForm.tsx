@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { AuthFormContainer } from '@layouts';
 import { Box, Button, Divider, TextField } from '@mui/material';
 import { GoogleLogin, type CredentialResponse } from '@react-oauth/google';
 import { Controller, useForm } from 'react-hook-form';
-import { AuthFormContainer } from '../../../../core/layouts';
 import type { SignInFormData } from './schema';
 import schema from './schema';
 

@@ -1,5 +1,5 @@
+import { extractAxiosErrorMessage } from '@utils/axiosError';
 import { useState } from 'react';
-import { extractAxiosErrorMessage } from '../../../core/util/axiosError';
 import { Otp } from '../Otp';
 import { RegisterForm, handleOnSignInFormSubmit } from './components';
 import type { SignUpFormData } from './components/schema';

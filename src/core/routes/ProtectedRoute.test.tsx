@@ -1,6 +1,6 @@
+import { AuthProvider } from '@context/AuthContext';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from '../context/AuthContext';
 import ProtectedRoute from './ProtectedRoute';
 
 const Dashboard = () => <div>Dashboard</div>;

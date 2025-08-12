@@ -1,6 +1,6 @@
+import { AuthLeftColumn, AuthRightColumn } from '@layouts';
 import { Card } from '@mui/material';
 import React from 'react';
-import { AuthLeftColumn, AuthRightColumn } from '../layouts';
 
 interface Props {
     children: React.ReactNode;
