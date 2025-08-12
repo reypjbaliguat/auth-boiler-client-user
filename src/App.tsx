@@ -5,13 +5,13 @@ import {
     BrowserRouter as Router,
     Routes,
 } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './core/context/AuthContext';
+import AuthRoute from './core/routes/AuthRoute';
+import ProtectedRoute from './core/routes/ProtectedRoute';
+import { store } from './core/store/store';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/auth/Login/Login';
 import Register from './pages/auth/Register/Register';
-import AuthRoute from './routes/AuthRoute';
-import ProtectedRoute from './routes/ProtectedRoute';
-import { store } from './store/store';
 
 const App = () => {
     return (

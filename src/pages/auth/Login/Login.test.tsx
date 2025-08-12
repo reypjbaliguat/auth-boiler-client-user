@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import { AuthProvider } from '../../../context/AuthContext';
+import { AuthProvider } from '../../../core/context/AuthContext';
 import { LoginPage } from './';
 
 describe('Login Page', () => {
