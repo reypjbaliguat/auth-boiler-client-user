@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Dashboard from './pages/Dashboard';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
+import Login from './pages/auth/Login/Login';
+import Register from './pages/auth/Register/Register';
 import AuthRoute from './routes/AuthRoute';
 import ProtectedRoute from './routes/ProtectedRoute';
 import { store } from './store/store';

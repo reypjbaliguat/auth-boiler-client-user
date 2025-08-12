@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import OTPForm from '../../layouts/OTPForm';
-import { extractAxiosErrorMessage } from '../../util/axiosError';
+import { extractAxiosErrorMessage } from '../../../util/axiosError';
+import { Otp } from '../Otp';
 import { RegisterForm, handleOnSignInFormSubmit } from './components';
 import type { SignUpFormData } from './components/schema';
 
@@ -26,7 +26,7 @@ function Register() {
                 />
             );
         case 'otp':
-            return <OTPForm />;
+            return <Otp />;
         default:
             return <></>;
     }
